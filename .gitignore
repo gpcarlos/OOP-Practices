@@ -42,3 +42,5 @@ luhn.cpp
 *_check*
 test*
 /P2/Makefile
+/P3/Makefile
+/P3/ejemplo*

@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# My ignored
+/dsl*
+/Tes*
+luhn.cpp
+/P*/Ma*
+/P*/Cl*
+/P*/Ve*
+*.tar.*
+*_check*
+test*
+/P2/Makefile

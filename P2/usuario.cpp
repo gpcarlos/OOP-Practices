@@ -65,7 +65,7 @@ void Usuario::compra (const Articulo& art, unsigned cant){
 	else carrito_[const_cast<Articulo*>(&art)] = cant;
 }
 
-////////////////OPERADOR DE INSECCIÓN////////////////
+////////////////OPERADOR DE INSERCIÓN////////////////
 std::ostream& operator << (std::ostream& os, const Usuario& u){
 	os << u.indentificador_ << " [" << u.clave_.clave() << "] "
 	<< u.nombre_ << " " << u.apellidos_ << std::endl

@@ -9,7 +9,7 @@
 
 #include "articulo.hpp"
 
-////////////////OPERADOR DE INSERCCIÓN//////////////
+////////////////OPERADOR DE INSERCIÓN//////////////
 std::ostream& operator <<(std::ostream& os, const Articulo& a){
 	os << "[" << a.referencia() << "] \"" << a.titulo() << "\", "
 	<< a.f_publi().anno() << ". " << std::fixed << std::setprecision(2)

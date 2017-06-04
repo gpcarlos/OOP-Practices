@@ -39,7 +39,7 @@ class Articulo{
 		unsigned stock_;
 };
 
-////////////////OPERADOR DE INSERCCIÓN//////////////
+////////////////OPERADOR DE INSERCIÓN//////////////
 std::ostream& operator <<(std::ostream& os, const Articulo& a);
 
 #endif

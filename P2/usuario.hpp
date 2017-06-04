@@ -91,7 +91,7 @@ class Usuario{
 		////////////////ASOCIACIÓN CON ARTICULO////////////////
 		void compra (const Articulo& art, unsigned cant=1);
 
-		////////////////OPERADOR DE INSECCIÓN////////////////
+		////////////////OPERADOR DE INSERCIÓN////////////////
 		friend std::ostream& operator << (std::ostream& os, const Usuario& u);
 
 		////////////////DESTRUCTOR////////////////

@@ -13,23 +13,28 @@
 
 bool luhn(const Cadena& numero);
 
+struct EsDigito{
+	bool operator()(char c) const{ return std::isdigit(c);}
+};
+
 ////////////////CONTRUCTOR////////////////
-Numero::Numero(const Cadena& num): numero_(num){
-	char* nm = new char[num.length() +1];
+Numero::Numero(const Cadena& num):numero_(num){
+	Cadena::iterator fin = std::remove_if(
+		numero_.begin(), numero_.end(), [](char c){ return std::isspace(c); } );
 
-	size_t j = 0;
-	for(size_t i =0 ; i<num.length(); ++i){
-		if(!isspace(num[i])){
-			if(!isdigit(num[i])) throw Incorrecto(DIGITOS);
-			nm[j++] = num[i];
-		}
+	if(fin!= numero_.end()){
+		Cadena sd(numero_.c_str());
+		numero_=sd;
 	}
-	nm[j]=0;
-	if(numero_ != nm) numero_ = nm;
-	delete[] nm;
+	if ( std::find_if(numero_.begin(), numero_.end(),
+	std::not1(std::function<bool(char)>(EsDigito())) )!= numero_.end() ){
+    throw Incorrecto(DIGITOS);
+  }
 
+	size_t j=numero_.length();
 	if(j<13 or j>19) throw Incorrecto(LONGITUD);
 	if(not luhn(numero_)) throw Incorrecto(NO_VALIDO);
+
 }
 
 ////////////////OPERADOR DE CONVERSIÓN////////////////

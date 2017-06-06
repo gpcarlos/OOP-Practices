@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 2: Relaciones de asociación y contenedores de la STL
+ * Práctica 3: Clases de asociación y algoritmos de la STL
  * tarjeta.hpp
  *
  * @author: Carlos Gallardo Polanco
@@ -14,7 +14,6 @@
 #include "cadena.hpp"
 #include <iomanip>
 #include <algorithm>
-
 
 class Usuario;
 

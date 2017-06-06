@@ -13,7 +13,7 @@
 #include <iomanip>
 #include <map>
 #include <set>
-//#include "pedido.hpp"
+
 class Pedido;
 class Articulo;
 
@@ -48,17 +48,19 @@ class Pedido_Articulo{
     typedef std::map<Articulo*, LineaPedido, OrdenaArticulos> ItemsPedido;
     typedef std::map<Pedido*, LineaPedido, OrdenaPedidos> Pedidos;
 
-    // No es necesario definir constructores
-
+    ////////////////PEDIR////////////////
     void pedir(Pedido& p, Articulo& a, double pr, unsigned c=1);
     void pedir(Articulo& a, Pedido& p, double pr, unsigned c=1);
 
+    ////////////////DETALLE////////////////
     const ItemsPedido& detalle(Pedido& p) const noexcept
     { return Directa.find(&p)->second;}
 
+    ////////////////VENTAS////////////////
     const Pedidos& ventas(Articulo& a) const noexcept
     { return Inversa.find(&a)->second;}
 
+    ////////////////MOSTRAR...////////////////
     std::ostream& mostrarDetallePedidos(std::ostream& os);
     std::ostream& mostrarVentasArticulos(std::ostream& os);
 
@@ -68,9 +70,8 @@ class Pedido_Articulo{
 
 };
 
-std::ostream& operator<< (std::ostream& os,
-  const Pedido_Articulo::ItemsPedido& x);
-std::ostream& operator<< (std::ostream& os,
-  const Pedido_Articulo::Pedidos& x);
+////////////////OPERADOR DE INSERCIÓN////////////////
+std::ostream& operator<< (std::ostream& os, const Pedido_Articulo::ItemsPedido& x);
+std::ostream& operator<< (std::ostream& os, const Pedido_Articulo::Pedidos& x);
 
 #endif

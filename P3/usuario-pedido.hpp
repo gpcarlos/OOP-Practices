@@ -14,20 +14,22 @@
 #include <set>
 
 class Usuario;
-//class Pedido;
 
 class Usuario_Pedido{
   public:
     typedef std::set<Pedido*> Pedidos;
 
+    ////////////////ASOCIA////////////////
     void asocia(Usuario& u, Pedido& p){
       Directa[&u].insert(&p);
       Inversa[&p]=&u;
     }
     void asocia(Pedido& p, Usuario& u){ asocia(u,p);}
 
+    ////////////////PEDIOS////////////////
     const Pedidos& pedidos(Usuario& u) const noexcept
     { return Directa.find(&u)->second;}
+    ////////////////CLIENTE////////////////
     const Usuario* cliente(Pedido& p) const noexcept
     { return Inversa.find(&p)->second;}
 

@@ -16,10 +16,7 @@
 extern "C"{
 	#include <unistd.h> // crypt
 }
-#include <iostream>
-#include <iomanip>
 #include <random>
-#include <iostream>
 #include <map>
 #include <unordered_map>
 #include <unordered_set>

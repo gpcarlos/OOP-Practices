@@ -20,7 +20,6 @@ class Pedido_Articulo;
 
 class Pedido{
   public:
-
     class Vacio{
       public:
         Vacio(const Usuario& u): us_(&u){}

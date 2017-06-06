@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 2: Relaciones de asociación y contenedores de la STL
+ * Práctica 3: Clases de asociación y algoritmos de la STL
  * usuario.hpp
  *
  * @author: Carlos Gallardo Polanco
@@ -16,10 +16,7 @@
 extern "C"{
 	#include <unistd.h> // crypt
 }
-#include <iostream>
-#include <iomanip>
 #include <random>
-#include <iostream>
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
@@ -28,7 +25,6 @@ class Tarjeta;
 
 class Clave{
 	public:
-
 		enum Razon {CORTA, ERROR_CRYPT};
 
 		class Incorrecta{

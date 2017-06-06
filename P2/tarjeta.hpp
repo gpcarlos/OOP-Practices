@@ -12,9 +12,9 @@
 
 #include "fecha.hpp"
 #include "cadena.hpp"
-#include "usuario.hpp"
-#include <iostream>
 #include <iomanip>
+
+class Usuario;
 
 class Numero{
 	public:

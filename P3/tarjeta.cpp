@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 3: Clases de asociación y algoritmos de la STL
+ * Práctica 2: Relaciones de asociación y contenedores de la STL
  * tarjeta.cpp
  *
  * @author: Carlos Gallardo Polanco
@@ -8,6 +8,7 @@
  */
 
 #include "tarjeta.hpp"
+#include "usuario.hpp"
 
 /************************NUMERO************************/
 
@@ -23,6 +24,7 @@ Numero::Numero(const Cadena& num):numero_(num){
 		numero_.begin(), numero_.end(), [](char c){ return std::isspace(c); } );
 
 	if(fin!= numero_.end()){
+		*fin='\0';
 		Cadena sd(numero_.c_str());
 		numero_=sd;
 	}
@@ -80,7 +82,7 @@ std::ostream& operator << (std::ostream& os, const Tarjeta::Tipo& t){
 	const char* enumerado[] = {"VISA", "Mastercard", "Maestro", "JCB",
 		"AmericanExpress"};
 	int i = static_cast<int>(t);
-	os << enumerado[i] << std::endl;
+	os << enumerado[i];
 
 	return os;
 }

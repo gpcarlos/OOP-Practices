@@ -12,7 +12,6 @@
 
 #include "cadena.hpp"
 #include "fecha.hpp"
-#include <iostream>
 #include <iomanip>
 
 class Articulo{

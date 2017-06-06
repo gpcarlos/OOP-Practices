@@ -8,6 +8,7 @@
  */
 
 #include "tarjeta.hpp"
+#include "usuario.hpp"
 
 /************************NUMERO************************/
 

@@ -11,7 +11,6 @@
 #define USUARIO_HPP
 
 #include "cadena.hpp"
-#include "tarjeta.hpp"
 #include "articulo.hpp"
 
 extern "C"{
@@ -24,6 +23,8 @@ extern "C"{
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
+
+class Tarjeta;
 
 class Clave{
 	public:

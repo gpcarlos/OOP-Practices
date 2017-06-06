@@ -8,6 +8,7 @@
  */
 
 #include "usuario.hpp"
+#include "tarjeta.hpp"
 
 Usuario::Identificadores Usuario::idents_;
 

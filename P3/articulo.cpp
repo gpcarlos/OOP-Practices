@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 3: Clases de asociación y algoritmos de la STL
+ * Práctica 2: Relaciones de asociación y contenedores de la STL
  * articulo.cpp
  *
  * @author: Carlos Gallardo Polanco

@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 3: Clases de asociación y algoritmos de la STL
+ * Práctica 2: Relaciones de asociación y contenedores de la STL
  * articulo.hpp
  *
  * @author: Carlos Gallardo Polanco
@@ -12,7 +12,6 @@
 
 #include "cadena.hpp"
 #include "fecha.hpp"
-#include <iostream>
 #include <iomanip>
 
 class Articulo{

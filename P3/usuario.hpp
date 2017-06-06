@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 3: Clases de asociación y algoritmos de la STL
+ * Práctica 2: Relaciones de asociación y contenedores de la STL
  * usuario.hpp
  *
  * @author: Carlos Gallardo Polanco
@@ -11,7 +11,6 @@
 #define USUARIO_HPP
 
 #include "cadena.hpp"
-#include "tarjeta.hpp"
 #include "articulo.hpp"
 
 extern "C"{
@@ -24,6 +23,8 @@ extern "C"{
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
+
+class Tarjeta;
 
 class Clave{
 	public:

@@ -31,6 +31,8 @@ bool OrdenaArticulos::operator()(const Articulo* a1, const Articulo* a2)
 void Pedido_Articulo::pedir(Pedido& p, Articulo& a, double pr, unsigned c){
   Directa[&p].insert(std::make_pair(&a, LineaPedido(pr, c)));
   Inversa[&a].insert(std::make_pair(&p, LineaPedido(pr, c)));
+  // Podría usarse 'Directa[&p][&a]= LineaPedido(pr, c)' si hubiera
+  // constructor por defecto para LineaPedido
 }
 
 void Pedido_Articulo::pedir(Articulo& a, Pedido& p, double pr, unsigned c){

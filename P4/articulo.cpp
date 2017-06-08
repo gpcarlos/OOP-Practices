@@ -19,14 +19,23 @@ std::ostream& operator <<(std::ostream& os, const Articulo& a) noexcept{
 	os << "[" << a.referencia() << "] \"" << a.titulo() << "\", de";
 
 	for (auto i = a.autores().begin(); i != a.autores().end(); ++i){
-		if (i!=a.autores().end()) os << (*i)->apellidos() << ",";
-		else os << (*i)->apellidos() << ".";
+		if (i==a.autores().begin()) os << " " << (*i)->apellidos();
+		else os << ", " << (*i)->apellidos();
 	}
 
-	os << a.f_publi().anno() << ". " << std::fixed << std::setprecision(2)
-	   << a.precio() << "€";
+	os << ". " << a.f_publi().anno() << ". " << std::fixed << std::setprecision(2)
+	   << a.precio() << " €\n\t";
 
 	a.impresion_especifica(os);
 
 	return os;
 }
+
+void Libro::impresion_especifica(std::ostream& os) const noexcept
+{ os  << n_pag_ << " págs., " << stock_ << " unidades.";}
+
+void Cederron::impresion_especifica(std::ostream& os) const noexcept
+{ os  << tam_ << " MB, " << stock_ << " unidades.";}
+
+void LibroDigital::impresion_especifica(std::ostream& os) const noexcept
+{ os << "A la venta hasta el " << f_expir_ << ".";}

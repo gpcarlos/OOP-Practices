@@ -94,7 +94,7 @@ std::ostream& operator<< (std::ostream& os, const Pedido_Articulo::Pedidos& x){
     cantidadt_+=i.second.cantidad();
   }
   os << "=============================================================\n"
-     << std::fixed << std::setprecision(2) << importet_ << " €\t"
+     << std::fixed << std::setprecision(2) << importet_ << " € \t"
      << std::setprecision(0) << cantidadt_ << "\n";
 
   return os;

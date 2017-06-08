@@ -69,14 +69,14 @@ class ArticuloAlmacenable: public Articulo{
 	public:
 		////////////////CONSTRUCTOR//////////////
 		ArticuloAlmacenable(const Autores& a, const Cadena& r, const Cadena& t,
-			const Fecha& f, double p, unsigned s=0): Articulo(a,r,t,f,p){}
+			const Fecha& f, double p, unsigned s=0): Articulo(a,r,t,f,p),stock_(s){}
 
 		////////////////OBSERVADOR//////////////
 		unsigned stock() const noexcept{ return stock_;}
 		unsigned& stock() noexcept{ return stock_;}
 
 		//virtual ~ArticuloAlmacenable();
-	private:
+	protected:
 		unsigned stock_;
 };
 
@@ -86,19 +86,16 @@ class Libro: public ArticuloAlmacenable{
 		////////////////CONSTRUCTOR//////////////
 		Libro(const Autores& a, const Cadena& r, const Cadena& t,
 			const Fecha& f, double p, unsigned pag, unsigned s=0):
-			ArticuloAlmacenable(a,r,t,f,p,s), paginas_(pag){}
+			ArticuloAlmacenable(a,r,t,f,p,s), n_pag_(pag){}
 
 		////////////////OBSERVADORES//////////////
-		unsigned n_pag() const noexcept{ return paginas_;}
+		unsigned n_pag() const noexcept{ return n_pag_;}
 
 		////////////////IMPRESIÓN ESPECÍFICA//////////////
-		inline void impresion_especifica(std::ostream& os) const noexcept;
+		void impresion_especifica(std::ostream& os) const noexcept;
 	private:
-		 unsigned paginas_;
+		unsigned n_pag_;
 };
-
-inline void Libro::impresion_especifica(std::ostream& os) const noexcept
-{ os << "\t" << paginas_ << " págs., " << stock() << " unidades.";}
 
 
 class Cederron: public ArticuloAlmacenable{
@@ -106,38 +103,33 @@ class Cederron: public ArticuloAlmacenable{
 		////////////////CONSTRUCTOR//////////////
 		Cederron(const Autores& a, const Cadena& r, const Cadena& t,
 			const Fecha& f, double p, unsigned tam, unsigned s=0):
-			ArticuloAlmacenable(a,r,t,f,p,s), tamanno_(tam){}
+			ArticuloAlmacenable(a,r,t,f,p,s), tam_(tam){}
 
 		////////////////OBSERVADORES//////////////
-		unsigned tam() const noexcept{ return tamanno_;}
+		unsigned tam() const noexcept{ return tam_;}
 
 		////////////////IMPRESIÓN ESPECÍFICA//////////////
-		inline void impresion_especifica(std::ostream& os) const noexcept;
+		void impresion_especifica(std::ostream& os) const noexcept;
 	private:
-		 unsigned tamanno_;
+		unsigned tam_;
 };
-
-inline void Cederron::impresion_especifica(std::ostream& os) const noexcept
-{ os << "\t" << tamanno_ << " MB, " << stock() << " unidades.";}
-
 
 class LibroDigital: public Articulo{
 	public:
 		////////////////CONSTRUCTOR//////////////
 		LibroDigital(const Autores& a, const Cadena& r, const Cadena& t,
-			const Fecha& f, double p, const Fecha& exp):
-			Articulo(a,r,t,f,p), fecha_exp_(exp){}
+			const Fecha& f, double p, const Fecha& e):
+			Articulo(a,r,t,f,p), f_expir_(e){}
 
 		////////////////OBSERVADORES//////////////
-		const Fecha& f_expir() const noexcept{ return fecha_exp_;}
+		const Fecha& f_expir() const noexcept{ return f_expir_;}
 
 		////////////////IMPRESIÓN ESPECÍFICA//////////////
-		inline void impresion_especifica(std::ostream& os) const noexcept;
+		void impresion_especifica(std::ostream& os) const noexcept;
 	private:
-		 Fecha fecha_exp_;
+		Fecha f_expir_;
 };
 
-inline void LibroDigital::impresion_especifica(std::ostream& os) const noexcept
-{ os << "\tA la venta hasta el " << fecha_exp_ << ".";}
+
 
 #endif

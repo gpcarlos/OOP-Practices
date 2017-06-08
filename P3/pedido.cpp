@@ -51,11 +51,11 @@ Pedido::Pedido(Usuario_Pedido& u_p, Pedido_Articulo& p_a, Usuario& u,
 
 ////////////////OPERADOR DE INSERCIÓN////////////////
 std::ostream& operator<< (std::ostream& os, const Pedido& p){
-  os << "Núm. pedido: " << p.numero() << std::endl
-     << "Fecha:       " << p.fecha() << std::endl
+  os << "Núm. pedido: " << p.numero() << "\n"
+     << "Fecha:       " << p.fecha() << "\n"
      << "Pagado con:  " << p.tarjeta()->tipo() << " n.º: "
-     << p.tarjeta()->numero() << std::endl
+     << p.tarjeta()->numero() << "\n"
      << "Importe:     " << std::fixed << std::setprecision(2)
-     << p.total() << " €" << std::endl;
+     << p.total() << " €" << "\n";
   return os;
 }

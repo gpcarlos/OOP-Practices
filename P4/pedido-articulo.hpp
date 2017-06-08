@@ -27,6 +27,7 @@ class LineaPedido{
     ////////////////OBSERVADORES////////////////
     double precio_venta() const noexcept{ return precio_venta_;}
     unsigned cantidad() const noexcept{ return cantidad_vendida_;}
+
   private:
     double precio_venta_;
     unsigned cantidad_vendida_;
@@ -34,6 +35,7 @@ class LineaPedido{
 
 ////////////////OPERADOR DE INSERCIÓN////////////////
 std::ostream& operator<< (std::ostream& os, const LineaPedido& lp);
+
 
 struct OrdenaPedidos: public std::binary_function<Pedido*, Pedido*, bool>{
   bool operator()(const Pedido* p1, const Pedido* p2) const noexcept;

@@ -69,9 +69,9 @@ void Usuario::compra (const Articulo& art, unsigned cant){
 ////////////////OPERADOR DE INSERCIÓN////////////////
 std::ostream& operator << (std::ostream& os, const Usuario& u){
 	os << u.indentificador_ << " [" << u.clave_.clave() << "] "
-	<< u.nombre_ << " " << u.apellidos_ << std::endl
-	<< u.direccion_ << std::endl << "Tarjetas:" << std::endl;
-	for (auto i : u.tarjetas_) os << *i.second << std::endl;
+	<< u.nombre_ << " " << u.apellidos_ << "\n"
+	<< u.direccion_ << "\n" << "Tarjetas:" << "\n";
+	for (auto i : u.tarjetas_) os << *i.second << "\n";
 
 	return os;
 }
@@ -86,13 +86,13 @@ Usuario::~Usuario(){
 ////////////////MOSTRAR CARRO////////////////
 std::ostream& mostrar_carro(std::ostream& os, const Usuario& u){
 	os << "Carrito de compra de " << u.id() << " [Artículos: "
- 	<< u.n_articulos() << "]" << std::endl << " Cant. Artículo" << std::endl
-	<< "===============================================" << std::endl;
+ 	<< u.n_articulos() << "]" << "\n" << " Cant. Artículo" << "\n"
+	<< "====================================================" << "\n";
 	for(auto i : u.compra()){
 		os << "  " << i.second << "    [" << i.first->referencia() << "] \""
 		<< i.first->titulo() << "\", " << i.first->f_publi().anno() << ". "
 		<< std::fixed << std::setprecision(2) << i.first->precio()	<< " €"
-		<< std::endl;
+		<< "\n";
 	}
 
 	return os;

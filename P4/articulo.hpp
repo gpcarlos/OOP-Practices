@@ -25,6 +25,7 @@ class Autor{
 		const Cadena& nombre() const noexcept{ return nombre_;}
 		const Cadena& apellidos() const noexcept{ return apellidos_;}
 		const Cadena& direccion() const noexcept{ return direccion_;}
+		
 	private:
 		Cadena nombre_, apellidos_, direccion_;
 };
@@ -32,7 +33,6 @@ class Autor{
 class Articulo{
 	public:
 		class Autores_vacios{};
-
 		typedef std::set<Autor*> Autores;
 
 		////////////////CONSTRUCTOR//////////////
@@ -75,7 +75,6 @@ class ArticuloAlmacenable: public Articulo{
 		unsigned stock() const noexcept{ return stock_;}
 		unsigned& stock() noexcept{ return stock_;}
 
-		//virtual ~ArticuloAlmacenable();
 	protected:
 		unsigned stock_;
 };
@@ -93,6 +92,7 @@ class Libro: public ArticuloAlmacenable{
 
 		////////////////IMPRESIÓN ESPECÍFICA//////////////
 		void impresion_especifica(std::ostream& os) const noexcept;
+
 	private:
 		unsigned n_pag_;
 };
@@ -110,9 +110,11 @@ class Cederron: public ArticuloAlmacenable{
 
 		////////////////IMPRESIÓN ESPECÍFICA//////////////
 		void impresion_especifica(std::ostream& os) const noexcept;
+
 	private:
 		unsigned tam_;
 };
+
 
 class LibroDigital: public Articulo{
 	public:
@@ -126,10 +128,9 @@ class LibroDigital: public Articulo{
 
 		////////////////IMPRESIÓN ESPECÍFICA//////////////
 		void impresion_especifica(std::ostream& os) const noexcept;
+
 	private:
 		Fecha f_expir_;
 };
-
-
 
 #endif

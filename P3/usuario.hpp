@@ -109,5 +109,3 @@ class Usuario{
 std::ostream& mostrar_carro(std::ostream& os, const Usuario& u);
 
 #endif
-
-////////////////

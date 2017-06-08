@@ -23,14 +23,15 @@ std::ostream& operator <<(std::ostream& os, const Articulo& a) noexcept{
 		else os << ", " << (*i)->apellidos();
 	}
 
-	os << ". " << a.f_publi().anno() << ". " << std::fixed << std::setprecision(2)
-	   << a.precio() << " €\n\t";
+	os << ". " << a.f_publi().anno() << ". " << std::fixed
+	<< std::setprecision(2) << a.precio() << " €\n\t";
 
 	a.impresion_especifica(os);
 
 	return os;
 }
 
+////////////////IMPRESIÓN ESPECÍFICA//////////////
 void Libro::impresion_especifica(std::ostream& os) const noexcept{
 	os  << n_pag_ << " págs., " << stock_ << " unidades.";
 }

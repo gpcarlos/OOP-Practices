@@ -88,9 +88,9 @@ std::ostream& operator << (std::ostream& os, const Tarjeta::Tipo& t){
 }
 
 std::ostream& operator << (std::ostream& os, const Tarjeta& t){
-	os << t.tipo() << t.numero() << std::endl<< t.titular_facial() << std::endl
+	os << t.tipo() << t.numero() << "\n" << t.titular_facial() << "\n"
 	<< "Caduca: " << std::setfill('0') << std::setw(2) << t.caducidad().mes()
-	<< "/" << std::setw(2) << t.caducidad().anno() % 100 << std::endl;
+	<< "/" << std::setw(2) << t.caducidad().anno() % 100 << "\n";
 
 	return os;
 }

@@ -31,11 +31,14 @@ std::ostream& operator <<(std::ostream& os, const Articulo& a) noexcept{
 	return os;
 }
 
-void Libro::impresion_especifica(std::ostream& os) const noexcept
-{ os  << n_pag_ << " págs., " << stock_ << " unidades.";}
+void Libro::impresion_especifica(std::ostream& os) const noexcept{
+	os  << n_pag_ << " págs., " << stock_ << " unidades.";
+}
 
-void Cederron::impresion_especifica(std::ostream& os) const noexcept
-{ os  << tam_ << " MB, " << stock_ << " unidades.";}
+void Cederron::impresion_especifica(std::ostream& os) const noexcept{
+	os  << tam_ << " MB, " << stock_ << " unidades.";
+}
 
-void LibroDigital::impresion_especifica(std::ostream& os) const noexcept
-{ os << "A la venta hasta el " << f_expir_ << ".";}
+void LibroDigital::impresion_especifica(std::ostream& os) const noexcept{
+	os << "A la venta hasta el " << f_expir_ << ".";
+}

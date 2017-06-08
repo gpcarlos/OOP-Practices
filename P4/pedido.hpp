@@ -1,6 +1,6 @@
 /**
  * Programación Orientada a Objetos
- * Práctica 3: Clases de asociación y algoritmos de la STL
+ * Práctica 4: Herencia y polimorfismo
  * pedido.hpp
  *
  * @author: Carlos Gallardo Polanco

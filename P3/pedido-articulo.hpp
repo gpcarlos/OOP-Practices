@@ -59,8 +59,8 @@ class Pedido_Articulo{
     { return Directa.find(&p)->second;}
 
     ////////////////VENTAS////////////////
-    const Pedidos& ventas(Articulo& a) const noexcept
-    { return Inversa.find(&a)->second;}
+    const Pedidos& ventas(Articulo& a) noexcept
+    { return Inversa[&a];}
 
     ////////////////MOSTRAR...////////////////
     std::ostream& mostrarDetallePedidos(std::ostream& os);

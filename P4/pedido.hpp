@@ -49,7 +49,7 @@ class Pedido{
       const Tarjeta& t, const Fecha& f=Fecha());
 
     ////////////////OBSERVADORES////////////////
-    const int numero() const noexcept{ return numero_;}
+    int numero() const noexcept{ return numero_;}
     const Tarjeta* tarjeta() const noexcept{ return tarjeta_;}
     Fecha fecha() const noexcept{ return fecha_;}
     double total() const noexcept{ return importe_;}

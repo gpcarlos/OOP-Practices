@@ -20,23 +20,24 @@ struct EsDigito{
 
 ////////////////CONTRUCTOR////////////////
 Numero::Numero(const Cadena& num):numero_(num){
-	Cadena::iterator fin = std::remove_if(
-		numero_.begin(), numero_.end(), [](char c){ return std::isspace(c); } );
+	Cadena::iterator fin = std::remove_if(numero_.begin(), numero_.end(),
+		[](char c){ return std::isspace(c);});
 
 	if(fin!= numero_.end()){
 		*fin='\0';
 		Cadena sd(numero_.c_str());
 		numero_=sd;
 	}
+
 	if ( std::find_if(numero_.begin(), numero_.end(),
-	std::not1(std::function<bool(char)>(EsDigito())) )!= numero_.end() ){
-    throw Incorrecto(DIGITOS);
+		std::not1(std::function<bool(char)>(EsDigito())))!= numero_.end()){
+
+		throw Incorrecto(DIGITOS);
   }
 
 	size_t j=numero_.length();
 	if(j<13 or j>19) throw Incorrecto(LONGITUD);
 	if(not luhn(numero_)) throw Incorrecto(NO_VALIDO);
-
 }
 
 ////////////////OPERADOR DE CONVERSIÓN////////////////

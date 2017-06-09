@@ -26,9 +26,12 @@ class Usuario_Pedido{
     }
     void asocia(Pedido& p, Usuario& u){ asocia(u,p);}
 
-    ////////////////PEDIOS////////////////
-    const Pedidos& pedidos(Usuario& u) const noexcept
-    { return Directa.find(&u)->second;}
+    ////////////////PEDIDOS////////////////
+    const Pedidos pedidos(Usuario& u) const noexcept{
+      if (Directa.find(&u)==Directa.end()) return Pedidos();
+      else return Directa.find(&u)->second;
+    }
+
     ////////////////CLIENTE////////////////
     const Usuario* cliente(Pedido& p) const noexcept
     { return Inversa.find(&p)->second;}

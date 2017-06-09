@@ -55,12 +55,16 @@ class Pedido_Articulo{
     void pedir(Articulo& a, Pedido& p, double pr, unsigned c=1);
 
     ////////////////DETALLE////////////////
-    const ItemsPedido& detalle(Pedido& p) const noexcept
-    { return Directa.find(&p)->second;}
+    const ItemsPedido detalle(Pedido& p) const noexcept{
+      if (Directa.find(&p)==Directa.end()) return ItemsPedido();
+      else return Directa.find(&p)->second;
+    }
 
     ////////////////VENTAS////////////////
-    const Pedidos& ventas(Articulo& a) noexcept
-    { return Inversa[&a];}
+    const Pedidos ventas(Articulo& a) const noexcept{
+      if (Inversa.find(&a)==Inversa.end()) return Pedidos();
+      else return Inversa.find(&a)->second;
+    }
 
     ////////////////MOSTRAR...////////////////
     std::ostream& mostrarDetallePedidos(std::ostream& os);

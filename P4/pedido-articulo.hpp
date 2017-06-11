@@ -55,8 +55,9 @@ class Pedido_Articulo{
     void pedir(Articulo& a, Pedido& p, double pr, unsigned c=1);
 
     ////////////////DETALLE////////////////
-    const ItemsPedido detalle(Pedido& p) const noexcept{
-      if (Directa.find(&p)==Directa.end()) return ItemsPedido();
+    const ItemsPedido& detalle(Pedido& p) const noexcept{
+      if (Directa.find(&p)==Directa.end())
+      { static ItemsPedido itestat; return itestat=ItemsPedido();}
       else return Directa.find(&p)->second;
     }
 

@@ -33,8 +33,10 @@ class Usuario_Pedido{
     }
 
     ////////////////CLIENTE////////////////
-    const Usuario* cliente(Pedido& p) const noexcept
-    { return Inversa.find(&p)->second;}
+    const Usuario* cliente(Pedido& p) const noexcept{
+      if (Inversa.find(&p)==Inversa.end()) return nullptr;
+      else return Inversa.find(&p)->second;
+    }
 
   private:
     std::map<Usuario*, Pedidos> Directa;
